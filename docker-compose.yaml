@@ -12,6 +12,7 @@ services:
     user: root
     command: "sh -c \"chown -R node:node /home/node/shared && exec ./scripts/entrypoint.sh\"\n"
     environment:
+      DEPLOY_IMAGE_PLATFORM=linux/arm64
       REMIX_APP_PORT: 3000
       APP_ORIGIN: ${SERVICE_URL_TRIGGER}
       LOGIN_ORIGIN: ${SERVICE_URL_TRIGGER}
