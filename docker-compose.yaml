@@ -12,7 +12,6 @@ services:
     user: root
     command: "sh -c \"chown -R node:node /home/node/shared && exec ./scripts/entrypoint.sh\"\n"
     environment:
-      DEPLOY_IMAGE_PLATFORM:'linux/arm64'
       REMIX_APP_PORT: 3000
       APP_ORIGIN: ${SERVICE_URL_TRIGGER}
       LOGIN_ORIGIN: ${SERVICE_URL_TRIGGER}
@@ -48,6 +47,7 @@ services:
       RUN_REPLICATION_LOG_LEVEL: info
       APP_LOG_LEVEL: info
       TRIGGER_TELEMETRY_DISABLED: 0
+      DEPLOY_IMAGE_PLATFORM: linux/arm64
     volumes:
       - 'shared-data:/home/node/shared'
     healthcheck:
